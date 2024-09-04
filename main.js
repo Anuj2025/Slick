@@ -94,13 +94,36 @@ const target = document.querySelector(".target");
   
     target.innerHTML = data.results[0].formatted;
   fetch(urlKey).then((response) => response.json()).then((open) => {
-
+    
     console.log(open)
     const temprature = document.querySelector(".Temprature");
     temprature.innerHTML = Math.floor(open.main.temp) + "°c";
+    
+      // wind 
+  
+  const windText = document.querySelector("#windText");
+  windText.innerHTML = `${open.wind.speed} Km/h`;
+  
+  // pressure 
+  
+  const pressureText = document.querySelector("#pressureText");
+  pressureText.innerHTML = open.main.pressure + " hpa";
+  
+  // rain 
+  
+  const rainText = document.querySelector("#rainText");
+  rainText.innerHTML = open.weather[0].description;
+  
+  // index
+  
+  
+  const indexText = document.querySelector("#indexText");
+
+  
+  indexText.innerHTML = city;
+  
   });
 }
-
 window.onload = () => {
     SetDateTime();
     getLocation();

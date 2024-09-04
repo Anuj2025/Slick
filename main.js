@@ -5,6 +5,8 @@ const api = "ffc88a036cbad32b19cc969493b4d8e4";const url = "https://api.openweat
 let barAndWidth = [];
 
 
+// Stop Webopen.main.temp 
+
 // Stop Web
 
 function SetDateTime() {
@@ -18,12 +20,12 @@ function SetDateTime() {
   `;
 }
 
-function Whether(data, city) {
+function Whether(open, city) {
   
   // wind 
   
   const windText = document.querySelector("#windText");
-  windText.innerHTML = `${data.wind.speed} Km/h`;
+  windText.innerHTML = `${open.wind.speed} Km/h`;
   
   // pressure 
   
@@ -46,10 +48,8 @@ function Whether(data, city) {
 }
 
 function getUserCurrentLocation( latitude, longitude) {
-  let query = `${latitude},${longitude}`
-  
+let query = `${latitude},${longitude}`
   let url = `${openUrl}?key=${openApi}&q=${query}&pretty=1`;
-
 try {
   fetch(url).then((response) => response.json()).then((data) => {
     FecthWhether(data);
@@ -57,10 +57,10 @@ try {
   });
 } catch (e) {
   console.log(e);
-  error(error);
 }
   
 }
+
 
 function getLocation() {
 if (navigator.geolocation) {
@@ -83,35 +83,32 @@ navigator.geolocation.getCurrentPosition((position) => {
 function FecthWhether(data) {
   let city = data.results[0].components.country;
   let county = data.results[0].components.county;
+  
   let qy = `lat=${data.results[0].bounds.northeast.lat}&lon=${data.results[0].bounds.northeast.lng}`;
   
   const urlKey = `https://api.openweathermap.org/data/2.5/weather?${qy}&appid=${api}&units=metric`;
-    const target = document.querySelector(".target");
+  
+  
+  // https://api.openweathermap.org/data/2.5/weather?lat=57&lon=-2.15&appid={API key}&units=metric
+const target = document.querySelector(".target");
   
     target.innerHTML = data.results[0].formatted;
-  
-  fetch(urlKey).then((response) => response.json()).then((data) => {
-    Whether(data, county);
-    console.log(data)
+  fetch(urlKey).then((response) => response.json()).then((open) => {
+
+    console.log(open)
     const temprature = document.querySelector(".Temprature");
-    temprature.innerHTML = "";
-    temprature.innerHTML = Math.floor(data.main.temp - 273.15) + "°c";
+    temprature.innerHTML = Math.floor(open.main.temp) + "°c";
   });
 }
 
 window.onload = () => {
-
     SetDateTime();
     getLocation();
     setBars();
-
-  
 }
   
 function setBars() {
   const rainTime = document.querySelectorAll(".RainTime");
-  
-  
   
   rainTime[0].innerHTML = barTime[Math.floor(Math.random() * barTime.length)] + barapm[Math.floor(Math.random() * barapm.length)];
   
@@ -136,4 +133,3 @@ function setBars() {
   localStorage.setItem("barAndWidth", barAndWidth);
   
 }
-

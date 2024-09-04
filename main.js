@@ -1,14 +1,9 @@
-
+const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];const monthSort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];const d = new Date();const date = d.getDate();const year = d.getFullYear();const monthSortName = monthSort[d.getMonth()];const lastMonth = month[d.getMonth() - 1];let name = month[d.getMonth()];
 const barTime =  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];const barapm = ["pm", "am"];const barWidth = [10, 20, 30, 40, 50, 60, 70, 80];
 const api = "ffc88a036cbad32b19cc969493b4d8e4";const url = "https://api.openweathermap.org/data/2.5/weather";const openUrl = "https://api.opencagedata.com/geocode/v1/json";const openApi = "87e60f27e76345d28d43ebd2fc1753d1";
-    
-let stopWeb = false;
+
 let barAndWidth = [];
 
-
-function error() {
- return stopWeb = true;
-}
 
 // Stop Web
 
@@ -104,13 +99,11 @@ function FecthWhether(data) {
 }
 
 window.onload = () => {
-  if (stopWeb) {
-    return;
-  }  else {
+
     SetDateTime();
     getLocation();
     setBars();
-  }
+
   
 }
   

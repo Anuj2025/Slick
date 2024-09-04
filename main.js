@@ -94,7 +94,7 @@ function FecthWhether(data) {
     console.log(data)
     const temprature = document.querySelector(".Temprature");
     temprature.innerHTML = "";
-    temprature.innerHTML = Math.floor(data.main.temp - 273.15) + "°c";
+    temprature.innerHTML = data.main.temp - 273.15 + "°c";
   });
 }
 

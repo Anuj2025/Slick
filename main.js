@@ -83,7 +83,7 @@ navigator.geolocation.getCurrentPosition((position) => {
 function FecthWhether(data) {
   let city = data.results[0].components.country;
   let county = data.results[0].components.county;
-  const urlKey = url + `?q=${city}&appid=${api}&metric=celcius`;
+  const urlKey = url + `?q=${data.results[0].components.country}&appid=${api}&metric=celcius`;
   
     const target = document.querySelector(".target");
   

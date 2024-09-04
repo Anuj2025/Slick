@@ -1,10 +1,6 @@
-import {d, date, year, name, monthSortName} from './components/DateAndTime/DateAndTime.js';
 
-import {
-    barWidth,
-    barTime,
-    barapm} from './components/BarsRadomization/bar.js';
-const api = "ffc88a036cbad32b19cc969493b4d8e4";const url = "https://api.openweathermap.org/data/2.5/weather";const openUrl = "https://api.opencagedata.com/geocode/v1/json";const openApi = "87e60f27e76345d28d43ebd2fc1753d1";export { api, url, openUrl, openApi };
+const barTime =  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];const barapm = ["pm", "am"];const barWidth = [10, 20, 30, 40, 50, 60, 70, 80];
+const api = "ffc88a036cbad32b19cc969493b4d8e4";const url = "https://api.openweathermap.org/data/2.5/weather";const openUrl = "https://api.opencagedata.com/geocode/v1/json";const openApi = "87e60f27e76345d28d43ebd2fc1753d1";
     
 let stopWeb = false;
 let barAndWidth = [];

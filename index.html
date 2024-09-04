@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Slick</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="navBar">
+  <div class="LogoBar">
+    <img width="64px" height="64px" src="./logo.png"> <h3 style="color: royalblue;">Slick</h3>
+  </div>
+  <div class="LinksBar">
+    <ul>
+      <li class="List active"><div class="icon">
+        <img src="./icons/Home.png">
+      </div><a 
+      href=" " 
+      class="Dashboard active"
+      >Dashboard</a></li>
+      
+  <li class="List"><div class="icon">
+  <img src="./icons/map.png">
+  </div><a 
+      href="./map.html" 
+      class="Map"
+      >Map</a></li>
+      
+  <li class="List"><div class="icon">
+  <img src="./icons/cala.png">
+  </div><a 
+      href="" 
+      class="Calender"
+      >Calender</a></li>
+    </ul>
+  </div>
+  <div class="system">
+<p>system</p>
+<div class="systemBar">
+      <ul>
+      <li class="List"><div class="icon">
+        <img src="./icons/setting.png">
+      </div><a 
+      href=" " 
+      class="Settings"
+      >Settings</a></li>
+
+      <li class="List"><div class="icon">
+        <img src="./icons/logout.png">
+      </div><a 
+      href=" " 
+      class="LogOut"
+      >Log out</a></li>
+      </ul>
+</div>
+  </div>
+</div>
+
+
+<main id="main">
+  <div class="headerMain" style="overflow: hidden;">
+    <div class="headerMain_date">
+    <div id="date">
+       <h3 id="monthAndYear"></h3>
+       <p id="Datepara">date</p>
+    </div>
+    </div>
+    <div class="headerMain_search">
+      <div class="InputBox">
+        <img src="./icons/search.png">
+           <input id="Search" type="text" placeholder="Search" onkeyup="Search()">
+      </div>
+    </div>
+  </div>
+
+<div id="error">
+  
+</div>
+
+  <div class="Overview">
+    <h3 style="
+    color: transparent;
+    background: linear-gradient(135deg, red, blue, black);
+    -webkit-background-clip: text;
+    ">Today Overview</h3>
+
+<div id="OverviewData">
+  <div class="windSpeed">
+<div>
+  <h3 class="a" style="padding: 10px;">wind</h3>
+  <h3 id="windText"></h3>
+</div>
+<div>
+</div>
+    
+</div>
+
+<div class="pressure">
+<div>
+<h3 class="a" style="padding: 10px;">pressure</h3>
+  <h3 id="pressureText"></h3>
+</div>
+<div>
+</div>
+
+</div>
+
+<div class="index">
+<div>
+<h3 class="a" style="padding: 10px;">index</h3>
+  <h3 id="indexText"></h3>
+</div>
+<div>
+</div>
+
+</div>
+
+
+<div style="text-align: center;" class="rain">
+<div>
+<h3 class="a" style="padding: 10px;">rain</h3>
+  <h3 id="rainText"></h3>
+</div>
+<div>
+</div>
+
+</div>
+
+
+</div>
+</div>
+
+
+<div class="chartBar">
+  <div id="chart">
+    <canvas id="myChart"></canvas>
+  </div>
+</div>
+
+<div style="margin-top: 10px;" class="chartBar">
+  <div id="chart">
+    <canvas id="Circle"></canvas>
+  </div>
+</div>
+
+
+
+</main>
+
+
+<div class="BoardBox" style="color: #fff;">
+<div class="block1">
+  <div 
+  id="Data" 
+  style="font-size: 1rem;
+  width: 200px;
+  color: transparent;
+  background: linear-gradient(135deg, white, pink);
+  -webkit-background-clip: text;
+  font-weight: bold;
+  ">
+    Hello, Welcome To Dashboard
+  <div class="target" style="border: 1px dotted #fff; padding: 5px; border-radius: 10px; margin-top: 10px;">
+    Error 
+  </div>
+</div>
+
+<div class="clock">
+  <span id="hrs">00</span><span>:</span><spna id="min">00</spna><span id="amPm"></span>
+</div>
+  </div>
+
+<div class="tempBox" style="opacity: 1;">
+  <img id="Sun" width="64px" height="64px" src="img/Cloud_Basic_F.png">
+   
+    <img id="Sun" style="opacity: 1;"width="64px" height="64px" src="img/Cloud_Sun_F.png">
+    
+    <img style="opacity: .5;" id="Sun" width="64px" height="64px" src="img/Moon_F.png">
+        
+</div>
+<div class="Temprature">
+</div>
+
+<div class="bars">
+  <div class="rainChance">
+    <h3 style="margin: 10px;">
+    Rain Chance
+    </h3>
+    <Span class="RainTime">
+      
+    </Span>
+    <div class="rainBar">
+      <div class="bar">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bars">
+  <div class="rainChance">
+    <Span class="RainTime">
+      
+    </Span>
+    <div class="rainBar">
+      <div class="bar">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bars">
+  <div class="rainChance">
+    <Span class="RainTime">
+      
+    </Span>
+    <div class="rainBar">
+      <div class="bar">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module">
+
+import {date, year, name, monthSortName, lastMonth} from './components/DateAndTime/DateAndTime.js';
+
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: [`${lastMonth}`, `${name}`, ],
+    datasets: [{
+      label: 'Weather Map',
+      data: [18, 19],
+      borderWidth: 1
+}]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+const ctx2 = document.getElementById('Circle');
+
+new Chart(ctx2, {
+  type: 'doughnut',
+  data: {
+    labels: [`${lastMonth}`, `${name}`, ],
+    datasets: [{
+      label: 'Weather This Year',
+      data: [12, 19],
+      borderWidth: 1
+}]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+
+
+
+
+
+
+
+
+</script>
+  <script type="module" src="main.js"></script>
+  <script>
+  
+  setInterval(() => {
+    const hrs = document.querySelector("#hrs");
+    const min = document.querySelector("#min");
+    const amPm = document.querySelector("#amPm");
+    let d = new Date();
+    
+    hours = d.getHours();
+    hrs.innerHTML = d.getHours();
+    min.innerHTML = d.getMinutes();
+    
+   if (hours < 12) {
+     amPm.innerHTML = "am";
+   } else {
+     amPm.innerHTML = "pm";
+   }
+    
+    if (min.innerHTML < 10) {
+      min.innerHTML = `0` + d.getMinutes();
+    } else {
+      min.innerHTML = d.getMinutes();
+    }
+    
+    if (hours > 12) {
+    hours = hours % 12;
+      hrs.innerHTML = hours
+    }
+    
+    if (hours < 10) {
+hrs.innerHTML = "0"+hours;
+    }
+    
+    if (hours === 00){
+      hrs.innerHTML = 12;
+    }
+
+  }, 900);
+  
+  function Search() {
+    const main = document.querySelector("main");
+    const Search = document.getElementById("Search");
+    console.log(Search.value);
+  
+  }
+  </script>
+</body>
+</html>

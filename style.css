@@ -1,0 +1,428 @@
+
+
+*{
+  margin: 0px;
+  padding: 0;
+  
+}
+
+:root{
+  --yale-blue: #173A7Eff;
+  --indigo-dye: #354964ff;
+  --neon-blue: #2864FDff;
+  --oxford-blue: #102A4Eff;
+  --antiflash-white: #EEF2F4ff;
+}
+
+/* body */
+
+body{
+  display: grid;  
+  grid-template-columns: 200px 1fr 250px;
+  grid-template-areas: 
+  "navBar" "main" "daskboard"
+  ;
+  grid-gap: 1px;
+  font-family: sans-serif;
+}
+
+/* navbar */
+
+.navBar, .BoardBox{
+  height: 100vh;
+}
+
+#main{
+  height: auto;
+}
+
+.navBar{
+  background: var(--antiflash-white);
+  position: sticky;
+  top: 0;
+}
+/* main */
+
+#main{
+  margin: 15px;
+}
+
+.BoardBox{
+  background: linear-gradient(135deg, var(--indigo-dye), var(--oxford-blue), var(--oxford-blue), var(--yale-blue), var(--neon-blue));
+  position: sticky;
+  top: 0;
+}
+
+/*logo*/
+
+.LogoBar{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 60px;
+}
+
+.LogoBar img{
+  animation: logoSpin 5s ease infinite;
+}
+
+/* links bar */
+
+.LinksBar{
+  position: absolute;
+  left: 30px;
+  top: 100px;
+}
+
+.LinksBar li{
+  list-style: none;
+  margin-top: 10px;
+}
+
+
+.LinksBar a{
+  text-decoration: none;
+color: #959595;
+font-weight: bold;
+}
+.List{
+  display: flex;
+  gap: 10px;
+  text-align: center;
+  align-items: center
+}
+.icon img{
+  width: 24px;
+  height: 24px;
+  
+}
+
+.active {
+  color: royalblue;
+}
+
+
+/* system */
+
+.system{
+  display: flex;
+  position: absolute;
+  bottom: 25px;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px;
+}
+
+.systemBar{
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.system p{
+  color: #959595;
+}
+
+
+/* Main */
+.headerMain{
+  display: flex;
+  margin: 10px;
+  text-transform: capitalize;
+  justify-content: space-between;
+  border-bottom: 1px solid #C5C5C5;
+  gap: 10px;
+  padding: 10px;
+  background: #fff;
+}
+.headerMain_search{
+  background: #F3F3F3;
+  border-radius: 5px;
+  justify-content: center;
+  padding: 5px;
+  height: 40px;
+}
+
+.headerMain_search .InputBox input{
+  outline: none;
+  border: none;
+  background: transparent;
+}
+#monthAndYear{
+  font-size: .7rem;
+}
+
+.InputBox{
+  display: flex;
+  overflow: hidden;
+}
+
+.InputBox img{
+  width: 24px;
+  height:24px;
+  margin-top: 0px;
+  margin: 10px;
+}
+
+.headerMain p{
+  color: #959595;
+}
+
+.headerMain_date{
+  padding: 10px;
+}
+
+
+#date p{
+  font-size: .7rem;
+}
+
+/* Overview */
+
+.Overview{
+  margin: 15px;
+}
+
+#OverviewData{
+  margin-top: 10px;
+  width: 95%;
+  height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 1em;
+  padding: 10px;
+  text-align: center;
+}
+
+.windSpeed{
+  background: #F3F3F3;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+ p{
+  color: lightgreen;
+}
+
+.pressure {
+  background: #F3F3F3;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.index{
+background: #F3F3F3;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.rain{
+  background: #F3F3F3;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+
+.index .a, .windSpeed .a, .rain .a, .pressure .a {
+  padding: 2px;
+  margin: 10px;
+  border-radius: 10px;
+  background: black;
+  color: #fff;
+}
+.chartBar{
+display: flex;
+justify-content: center;
+}
+#myChart{
+  width: 90%;
+  height: 150px;
+}
+#chart{
+  width: 90%;
+  height: 150px;
+  background: #EBEBEB ;
+  margin-left: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.Temprature{
+  font-weight: bold;
+  font-size: 3rem;
+  margin: 20px;
+}
+
+.tempBox{
+  animation: Cloud linear infinite;
+  animation-timeline: view();
+  Animation-range: entry 0% cover 40%;
+}
+
+.rainChance{
+  margin: 10px;
+  text-align: start;
+}
+
+/* rain chance */
+
+.RainTime{
+  position: absolute;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+.rainBar{
+  width: 70%;
+  height: 30px;
+  border-radius: 2rem;
+  margin: 20px;
+  background: rgba(24, 43, 255, .5);
+  position: relative;
+  left: 40px;
+  overflow: hidden;
+}
+
+.rainBar div {
+  contain:"";
+  position: absolute;
+  width: 30%;
+  height: 30px;
+  left: 0;
+  top: 0;
+  border-radius: 2rem;
+  background: linear-gradient(135deg, #FF0000, #FF00D3);
+  animation: widthIn 1s ease;
+  box-shadow: 0px 0px 1px #FF00D3;
+}
+/* for Mobile Screen */
+
+@media(max-width: 768px) {
+  body{
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-row: 300px 1fr 300px;
+  height: 100vh;
+  font-size: .8rem;
+}
+.navBar{
+  height: 60px;
+  width: 100%;
+}
+
+.LinksBar, .system{
+  display: none;
+}
+.BoardBox {
+  background: var(--neon-blue);
+  position: relative;
+  font-family: monospace;
+  font-weight: bold;
+  color: black;
+}
+}
+
+
+/* boxboard */
+
+.block1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  font-size: 1.4rem;
+}
+
+.clock {
+  font-size: .8rem;
+}
+.target {
+  color: #DDDDDD;
+  font-size: .8rem;
+}
+
+.target{
+  font-size: .5rem;
+}
+#error{
+  margin: 20px;
+  color: red;
+  display: none;
+  background: #333;
+  border: 1px solid rgba(40, 40, 40, 1);
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+
+
+
+/* animations */
+
+@keyframes widthIn {
+  from {
+    width: 0;
+  }
+  
+  to {
+    width:"" ;
+  }
+}
+
+@keyframes logoSpin {
+  from{
+    transform: rotate(0deg);
+  }
+  50%{
+transform: rotate(90deg);
+  }
+  75%{
+    transform: rotate(180deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes apper {
+  from {
+    opacity: 0;
+    scale: 0;
+    transform: translateX(-100%);
+  }
+  
+  to {
+    opacity: 1;
+    scale: 1;
+    transform: translateX(0px);
+  }
+}
+
+
+/* deafault css */ 
+
+a {
+  text-decoration: none;
+  color: #959595;
+  font-weight: bold;
+}
+
+
+.active {
+  color: royalblue;
+}

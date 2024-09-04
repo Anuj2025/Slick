@@ -83,8 +83,9 @@ navigator.geolocation.getCurrentPosition((position) => {
 function FecthWhether(data) {
   let city = data.results[0].components.country;
   let county = data.results[0].components.county;
-  const urlKey = url + `?q=${data.results[0].components.country}&appid=${api}&metric=celcius`;
+  let qy = `lat=${data.results[0].bounds.northeast.lat}&lon=${data.results[0].bounds.northeast.lng}`;
   
+  const urlKey = `https://api.openweathermap.org/data/2.5/weather?${qy}&appid=${api}&units=metric`;
     const target = document.querySelector(".target");
   
     target.innerHTML = data.results[0].formatted;
@@ -94,7 +95,7 @@ function FecthWhether(data) {
     console.log(data)
     const temprature = document.querySelector(".Temprature");
     temprature.innerHTML = "";
-    temprature.innerHTML = data.main.temp - 273.15 + "°c";
+    temprature.innerHTML = Math.floor(data.main.temp - 273.15) + "°c";
   });
 }
 
